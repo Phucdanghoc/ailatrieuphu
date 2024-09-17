@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Wants to Be a Millionaire</title>
+    <link rel="stylesheet" href="../assets/css/play.css">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="game-container">
+        <button class="back-button" onclick="window.history.back();">Thoát</button> <!-- Back button -->
+
+        <div class="question-area">
+
+            <div class="media">
+            </div>
+            <div class="question">Question will be here</div>
+            <div class="answers">
+                <button class="answer-btn" data-answer="A"><img src="/assets/images/diamond.png" class="icon">
+                    A</button>
+                <button class="answer-btn" data-answer="B"><img src="/assets/images/diamond.png" class="icon">
+                    B</button>
+                <button class="answer-btn" data-answer="C"><img src="/assets/images/diamond.png" class="icon">
+                    C</button>
+                <button class="answer-btn" data-answer="D"><img src="/assets/images/diamond.png" class="icon">
+                    D</button>
+            </div>
+        </div>
+        <div class="question-list">
+            <!-- Buttons will be dynamically added here -->
+        </div>
+    </div>
+
+    <% if (autoPlay) { %>
+        <script src="/assets/js/auto.js"></script>
+        <% } else { %>
+            <script src="/assets/js/play.js"></script>
+            <% } %>
+</body>
+
+</html>

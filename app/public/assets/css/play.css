@@ -1,0 +1,241 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow: hidden; /* Ensure the blur effect does not overflow */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/bg.jpeg');
+  background-size: cover; /* Ensure the image covers the entire viewport */
+  background-repeat: no-repeat;
+  filter: blur(5px); /* Adjust the blur amount as needed */
+  z-index: -1; /* Place the pseudo-element behind the content */
+}
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.answer-btn img.icon {
+  margin-right: 8px; /* Adjust the spacing between the icon and the text */
+  width: 20px; /* Adjust the icon size */
+  height: 20px; /* Adjust the icon size */
+}
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.game-container {
+  position: relative;
+}
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: -1; /* Place the overlay behind the content */
+}
+
+.game-container {
+  display: flex;
+  align-items: flex-end;
+  width: 95%;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  width: 100%;
+  text-align: start;
+}
+
+.answer-btn {
+  background-image: url("/assets/images/answer.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  color: white;
+  padding: 30px;
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+  font-size: 35px;
+  margin: 15px;
+  width: 100%;
+  max-width: 800px;
+  min-height: 100px;
+  text-align: left; 
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.question-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+.question {
+  background-image: url("/assets/images/question.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  color: white;
+  padding: 40px;
+  margin-left: 30px;
+  width: 100%;
+  font-size: 35px;
+  border: none;
+  text-align: center;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.lifelines {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.lifeline {
+  background-color: #FFC107;
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-left: 10px;
+  width: 30%;
+}
+.media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  max-width: 100%;
+  margin: 10px;
+}
+
+
+
+/* Hover effect for scaling the image */
+.media :hover {
+  transform: scale(1.5);  /* Scale the image to 110% of its original size */
+}
+
+
+.question-btn {
+  background-image: url("/assets/images/moneyaqua.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  color: black;
+  font-weight: bolder;
+  border: none;
+  text-align: center;
+  padding: 20px;
+  margin: 5px 0;
+  width: 80%;
+  height: 100%;
+  font-size: 35px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.answer-btn:hover {
+  background-image: url("/assets/images/answeryellowcheck.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.answer-btn.green {
+  background-image: url("/assets/images/answergreencheck.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.answer-btn.red {
+  background-image: url("/assets/images/answerredcheck.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.question-btn.active {
+  background-image: url("/assets/images/moneyblue.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+  background-color: transparent;
+}
+
+.answer-btn .checkmark {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background-image: url("/assets/images/answeryellowcheck.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  display: none;
+}
+
+.answer-btn.correct {
+  background-image: url("/assets/images/answergreencheck.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.blink {
+  animation: blink-effect 0.5s infinite;
+}
+
+@keyframes blink-effect {
+
+  20%,
+  100% {
+      opacity: 1;
+  }
+
+  50% {
+      opacity: 0.5;
+  }
+}

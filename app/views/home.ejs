@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Wants to Be a Millionaire</title>
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-image: url('/assets/images/homebg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            color: #ddd;
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        button {
+            font-size: 1.75rem;
+            padding: 15px 60px;
+            background-color: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        button:hover {
+            background-color: #125b99;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        button:active {
+            transform: translateY(3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #playButton {
+            background-color: #28a745;
+        }
+
+        #playButton:hover {
+            background-color: #218838;
+        }
+
+        #autoPlay {
+            background-color: #ffca28;
+            color: #000;
+        }
+
+        #autoPlay:hover {
+            background-color: #f6b703;
+        }
+
+        #adminButton {
+            background-color: #d32f2f;
+        }
+
+        #adminButton:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ai Là Triệu Phú</h1>
+        <button id="playButton">Bắt đầu</button>
+        <a href="/auto"><button id="autoPlay">Tự động chơi</button></a><br>
+        <a href="/admin"><button id="adminButton">Admin</button></a>
+    </div>
+
+    <audio id="startSound" src="http://localhost:3000/assets/sounds/On_the_Hot_Seat.mp3"></audio>
+    <script>
+        $(document).ready(function () {
+            $('#playButton').on('click', function (event) {
+                event.preventDefault();
+                var audio = $('#startSound')[0];
+                audio.play().catch(function (error) {
+                    console.error('Audio play error:', error);
+                });
+                setTimeout(function () {
+                    window.location.href = '/play';
+                }, 9000);
+            });
+        });
+    </script>
+</body>
+
+</html>

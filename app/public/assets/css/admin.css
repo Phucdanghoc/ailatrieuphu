@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.search-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+#notice {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 30px; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    color: white;
+    z-index: 1000;
+    max-width: 300px; 
+    text-align: center; 
+}
+
+.success {
+    background-color: #28a745;
+}
+
+.error {
+    background-color: #dc3545;
+}
+
+label {
+    font-weight: 600;
+}
+
+input[type="text"], textarea, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px; /* Space between left and right sections */
+    padding: 20px;
+}
+
+.left-section {
+    flex: 2;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.right-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border-left: 1px solid #ddd; /* Border to separate from left section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.option {
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.option:hover {
+    background-color: #e1e1e1;
+}
+
+.answer {
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+/* Button Grid */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.import-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Optional: Adjust form-group styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Import File Styling */
+#importFile {
+    margin-right: 10px;
+}
+#backBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.level-1 {
+    border: 3px solid #4caf50;
+}
+
+/* Level 2: Blue Border */
+.level-2 {
+    border: 3px solid #2196f3;
+}
+
+/* Level 3: Orange Border */
+.level-3 {
+    border: 3px solid #ff9800;
+}
+
+/* Level 4: Purple Border */
+.level-4 {
+    border: 3px solid #9c27b0;
+}
+
+/* Level 5: Red Border */
+.level-5 {
+    border: 3px solid #f44336;
+}

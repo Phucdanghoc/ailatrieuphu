@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <title>Admin</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <!-- Back Button -->
+            <button class="btn" id="backBtn" style="position: absolute; top: 10px; left: 10px;">Quay lại</button>
+        
+            <!-- Search and Pagination -->
+            <div class="search-pagination">
+                <div class="">
+                    <label for="searchInput">Tìm kiếm</label>
+                    <input type="text" id="searchInput" placeholder="Nhập từ khóa..." />
+                    <button class="btn" id="searchBtn">Tìm kiếm</button>
+                </div>
+                <div class="pagination">
+                    <button class="btn" id="prevPage">Trước</button>
+                    <span id="pageInfo">Trang 1</span>
+                    <button class="btn" id="nextPage">Tiếp theo</button>
+                </div>
+            </div>
+        
+            <!-- Level Explanation -->
+            <div class="level-explanation" style="text-align: center; margin-top: 20px;">
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="color: #4caf50;"><strong>Cấp độ 1-2:</strong> Câu hỏi dễ</li>
+                    <li style="color: #ff9800;"><strong>Cấp độ 3-4:</strong> Câu hỏi trung bình</li>
+                    <li style="color: #f44336;"><strong>Cấp độ 5:</strong> Câu hỏi khó</li>
+                </ul>
+            </div>
+        </header>
+        
+        
+
+        <main class="main-content">
+            <!-- Left Section -->
+            <section class="left-section">
+                <div class="card" id="question-list">
+                    <!-- Questions will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Right Section -->
+            <aside class="right-section">
+                <input type="text" hidden id="_id" value="">
+                <div class="form-group">
+                    <label for="doKho">Độ khó</label>
+                    <select id="doKho">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cauHoi">Câu hỏi</label>
+                    <textarea id="cauHoi" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="luaChon">Lựa chọn</label>
+                    <textarea id="luaChon" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dapAn">Đáp án</label>
+                    <select id="dapAn">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mediaFile">Chọn file MP3/MP4</label>
+                    <input type="file" id="mediaFile" accept="image/*, video/mp4" />
+                    <input id="filename" hidden value=""></p>
+                </div>
+                <!-- Button Container -->
+                <div class="btn-container">
+                    <div class="button-grid">
+                        <button class="btn" id="refreshBtn">Làm mới</button>
+                        <button class="btn" id="addBtn">Thêm mới</button>
+                        <button class="btn" id="updateBtn">Cập nhật</button>
+                        <button class="btn" id="deleteBtn">Xóa</button>
+                    </div>
+                    <div class="import-row">
+                        <div class="form-group">
+                            <label for="importFile">Chọn file Excel</label>
+                            <input type="file" id="importFile" accept=".xlsx, .xls" />
+                        </div>
+                        <button class="btn highlight" id="importBtn">Thêm</button>
+                    </div>
+                </div>
+                <div class="notice" id="notice" style="display: none;"></div>
+
+            </aside>
+        </main>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+
+</html>
