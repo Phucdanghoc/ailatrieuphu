@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="../assets/css/play.css">
     <link rel="icon" href="/assets/images/logo.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var timeCheck = <%= timeCheck %> || 5; 
+        var incorrectAnswer = <%= incorrectAnswer %> || 0; 
+    </script>
 </head>
 
 <body>
@@ -36,7 +40,9 @@
     </div>
 
     <% if (autoPlay) { %>
-        <script src="/assets/js/auto.js"></script>
+        <script src="/assets/js/auto.js">
+
+        </script>
         <% } else { %>
             <script src="/assets/js/play.js"></script>
             <% } %>

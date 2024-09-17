@@ -21,7 +21,7 @@ $(document).ready(function () {
             }
         });
     }
-    
+
     function toggleAudio() {
         if (audio.paused) {
             // If audio is paused, play it
@@ -56,32 +56,37 @@ $(document).ready(function () {
         if (CURRENTQUESTION < $('.question-btn').length) {
             $('.question-btn').eq(9 - CURRENTQUESTION).addClass('active');
         }
-        
         $('.answer-btn').prop('disabled', true);
+        let promises = [];
         $('.answer-btn').each(function (index) {
             const answerKey = ['A', 'B', 'C', 'D'][index];
             const answerText = data.answers[answerKey];
-            setTimeout(() => {
-                // Create the HTML content with the image and text
-                const content = `<img src="/assets/images/diamond.png" class="icon"> ${answerKey}: ${answerText}`;
-                $(this).html(content); // Set the HTML content
-                $(this).data('correct', data.result === answerKey);
-                $(this).removeClass('correct incorrect');
-                $(this).fadeIn();
-            }, index * 1000);
+            let promise = new Promise((resolve) => {
+                setTimeout(() => {
+                    const content = `<img src="/assets/images/diamond.png" class="icon"> ${answerKey}: ${answerText}`;
+                    $(this).html(content); // Set the HTML content
+                    $(this).data('correct', data.result === answerKey);
+                    $(this).removeClass('correct incorrect');
+                    $(this).fadeIn(resolve); // Resolve the promise when fadeIn completes
+                }, index * 1000); // Delay based on index
+            });
+            promises.push(promise);
         });
-    
-        setTimeout(() => {
-            checkAnswerAndProceed();
-        }, 5000);
+        // Wait for all promises to complete
+        Promise.all(promises).then(() => {
+            console.log(timeCheck);
+            setTimeout(() => {
+                checkAnswerAndProceed();
+            }, timeCheck * 1000);
+        });
     }
     function generateMediaTag(path) {
         const ext = path.split('.').pop().toLowerCase();
         if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
-            return `<img src="/assets/uploads/${path}" alt="Image" style="max-width: 75%; height: auto;">`;
+            return `<img src="/assets/uploads/${path}" alt="Image" style="max-width: 50%; height: auto;">`;
         } else if (['mp4', 'mov', 'webm'].includes(ext)) {
             return `
-                <video controls style="max-width: 75%; height: auto;">
+                <video controls style="max-width: 50%; height: auto;">
                     <source src="/assets/uploads/${path}" type="video/${ext}">
                     Your browser does not support the video tag.
                 </video>
@@ -90,7 +95,34 @@ $(document).ready(function () {
             return ''; // Return an empty string if the file type is unsupported
         }
     }
+    function resetQuestion() {
+        QUESTIONDATA = [];
+        CURRENTQUESTION = 0;
+        LEVEL = 1;
+        loadQuestion();
+    }
+    function incorrectAudio() {
+        incorrect.play().then(() => {
+            // isPlaying = true;
+        }).catch(error => console.error('Error playing audio:', error));
+    }
     function checkAnswerAndProceed() {
+        console.log("cur", CURRENTQUESTION)
+        console.log("Lv", LEVEL)
+
+        if (10*(LEVEL-1) + CURRENTQUESTION +  1 == incorrectAnswer) {
+            
+            const incorrectAnswerBtn = $('.answer-btn').filter(function () {
+                return $(this).data('correct') === false;
+            }).first();
+            // incorrectAnswerBtn.addClass('blink');
+            incorrectAnswerBtn.css('background-image', 'url("/assets/images/answerredcheck.png")');
+            incorrectAudio();
+            setTimeout(() => {
+                resetQuestion();
+            }, 3000);
+            return;
+        }
         const correctAnswerBtn = $('.answer-btn').filter(function () {
             return $(this).data('correct') === true;
         });
@@ -104,9 +136,9 @@ $(document).ready(function () {
                 updateQuestion(QUESTIONDATA[CURRENTQUESTION]);
             } else {
                 LEVEL++;
-                if (LEVEL <= 3) {
+                if (LEVEL <= 5) {
                     CURRENTQUESTION = 0;
-                    loadQuestion(); 
+                    loadQuestion();
                 } else {
                     alert('You have completed all levels!');
                 }
@@ -134,7 +166,7 @@ $(document).ready(function () {
             isPlaying = true;
         }).catch(error => console.error('Error replaying audio:', error));
     });
-    
+
     // Initial question load
     loadQuestion();
 });

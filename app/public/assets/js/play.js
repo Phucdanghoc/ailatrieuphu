@@ -81,10 +81,10 @@ $(document).ready(function () {
     function generateMediaTag(path) {
         const ext = path.split('.').pop().toLowerCase();
         if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
-            return `<img src="/assets/uploads/${path}" alt="Image" style="max-width: 75%; height: auto;">`;
+            return `<img src="/assets/uploads/${path}" alt="Image" style="max-width: 50%; height: auto;">`;
         } else if (['mp4', 'mov', 'webm'].includes(ext)) {
             return `
-                <video controls style="max-width: 75%; height: auto;">
+                <video controls style="max-width: 50%; height: auto;">
                     <source src="/assets/uploads/${path}" type="video/${ext}">
                     Your browser does not support the video tag.
                 </video>

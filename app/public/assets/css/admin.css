@@ -17,26 +17,26 @@ body {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    overflow-y: auto;
+    height: 95%;
 }
 
 .header {
     background-color: #ffffff;
     border-bottom: 1px solid #ddd;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 .search-pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 15px;
+    width: 100%;
+    gap: 10px;
 }
 
 input[type="file"] {
@@ -50,13 +50,13 @@ input[type="file"] {
     position: fixed;
     top: 20px;
     right: 20px;
-    padding: 15px 30px; 
-    border-radius: 10px; 
-    font-size: 16px; 
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 16px;
     color: white;
     z-index: 1000;
-    max-width: 300px; 
-    text-align: center; 
+    max-width: 300px;
+    text-align: center;
 }
 
 .success {
@@ -106,7 +106,7 @@ button.btn:hover {
 
 .main-content {
     display: flex;
-    gap: 20px; /* Space between left and right sections */
+    gap: 20px;
     padding: 20px;
 }
 
@@ -123,7 +123,7 @@ button.btn:hover {
     flex: 1;
     padding: 20px;
     background-color: #ffffff;
-    border-left: 1px solid #ddd; /* Border to separate from left section */
+    border-left: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -174,7 +174,7 @@ button.btn:hover {
     color: #333;
     margin-top: 10px;
 }
-/* Button Grid */
+
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -189,42 +189,81 @@ button.btn:hover {
     margin-top: 10px;
 }
 
-/* Optional: Adjust form-group styles */
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-/* Import File Styling */
 #importFile {
     margin-right: 10px;
 }
+
 #backBtn {
     position: absolute;
     top: 10px;
     left: 10px;
 }
+
 .level-1 {
     border: 3px solid #4caf50;
 }
 
-/* Level 2: Blue Border */
 .level-2 {
     border: 3px solid #2196f3;
 }
 
-/* Level 3: Orange Border */
 .level-3 {
     border: 3px solid #ff9800;
 }
 
-/* Level 4: Purple Border */
 .level-4 {
     border: 3px solid #9c27b0;
 }
 
-/* Level 5: Red Border */
 .level-5 {
     border: 3px solid #f44336;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-section,
+    .right-section {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .search-pagination {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button.btn {
+        width: 100%;
+    }
+
+    #notice {
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+    }
 }
