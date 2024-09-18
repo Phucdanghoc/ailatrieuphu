@@ -17,5 +17,4 @@ router.get('/questions/:id', (req, res) => questionController.getQuestionById(re
 router.put('/questions/:id', (req, res) => questionController.updateQuestionById(req, res));
 router.delete('/questions/:id', (req, res) => questionController.deleteQuestionById(req, res));
 router.post('/question/excel',upload.single('file'),(req,res) => questionController.importByExcel(req,res));
-
 module.exports = router;

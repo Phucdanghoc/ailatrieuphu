@@ -4,13 +4,17 @@ class HomeController {
     }
 
     play(req, res) {
-        res.render('play', { autoPlay: false });
+        res.render('play', {
+            autoPlay: false,
+            timeCheck:  0,
+            incorrectAnswer:  0
+        });
     }
     auto(req, res) {
         const { time, incorrectAnswer } = req.session;
 
         res.render('play', {
-            autoPlay: true , 
+            autoPlay: true,
             timeCheck: time ?? 3000,
             incorrectAnswer: incorrectAnswer ?? 5
         })

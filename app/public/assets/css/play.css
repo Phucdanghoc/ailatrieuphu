@@ -110,9 +110,10 @@
     background-color: transparent;
     background-position: center;
     color: white;
-    padding: 30px;
+    padding: 35px;
     margin-left: 30px;
     width: 100%;
+    min-height: 100px;
     font-size: 35px;
     border: none;
     text-align: center;
@@ -146,16 +147,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f9f9f9;
     max-width: 100%;
-    margin: 10px;
+    margin: 4%;
   }
 
 
 
   /* Hover effect for scaling the image */
   .media :hover {
-    transform: scale(1.5);  /* Scale the image to 110% of its original size */
+    transform: scale(1.2);  /* Scale the image to 110% of its original size */
   }
 
 
